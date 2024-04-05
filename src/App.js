@@ -43,21 +43,21 @@ function App() {
     setCartItems(updatedCart);
   };
 
-  // Function to handle search query change
   const handleSearchChange = async (query, category) => {
     setLoading(true); 
     setSearchPerformed(true);
-
+  
     let fetchedProducts = [];
-
+  
     if (category) {
       fetchedProducts = await fetchProductsByCategory(category);
+    } else {
       fetchedProducts = await fetchProducts(query);
     }
     setProducts(fetchedProducts); 
-    setLoading(false); // Set loading to false after fetching data
+    setLoading(false); 
   };
-
+  
   return (
     <div className="App">
       <header className="header">
